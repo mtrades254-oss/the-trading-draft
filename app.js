@@ -3,7 +3,6 @@
 // ==========================================
 const SITE_CONFIG = {
     brandName: "The Trading Draft",
-    // Your exact USDT TRC20 Address
     cryptoWalletAddress: "TYpnJ4SjhHUZASJZCYcH4n4ha5GzbGDnfE", 
     
     telegramSupport: "https://t.me/mk9110",             
@@ -19,27 +18,20 @@ const SITE_CONFIG = {
 // 🚀 LUXURY GOLD ENGINE INTERFACE
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
-    // Apply styling enhancements straight to the body background
-    document.body.className = "bg-black text-slate-200 font-sans antialiased selection:bg-amber-500/30 selection:text-white";
-
     // Standard Injections
     document.getElementById("nav-brand-name").innerText = SITE_CONFIG.brandName;
     document.getElementById("footer-brand-name").innerText = SITE_CONFIG.brandName;
     document.getElementById("price-monthly").innerText = SITE_CONFIG.pricing.monthly;
     document.getElementById("price-lifetime").innerText = SITE_CONFIG.pricing.lifetime;
     document.getElementById("floating-support-btn").href = SITE_CONFIG.telegramSupport;
-    document.getElementById("pricing-monthly-tg").href = SITE_CONFIG.telegramSupport;
-    document.getElementById("pricing-lifetime-tg").href = SITE_CONFIG.telegramSupport;
 
     // Injecting the glowing Dashboard setup
-    const featuresContainer = document.querySelector("section.py-16.px-4.bg-black > div.max-w-6xl.mx-auto > div.grid");
+    const featuresContainer = document.querySelector("section relative > div.max-w-6xl.mx-auto > div.grid") || document.querySelector("section.py-16.px-4.relative > div.max-w-6xl.mx-auto > div.grid");
     if (featuresContainer) {
         featuresContainer.className = "max-w-4xl mx-auto";
         featuresContainer.innerHTML = `
-            <!-- The Premium Signal Genie Box Shell -->
-            <div class="bg-zinc-950 border border-amber-500/30 shadow-[0_0_60px_rgba(245,158,11,0.15)] rounded-3xl overflow-hidden p-6 md:p-10 transition-all backdrop-blur-md">
+            <div class="bg-zinc-950/90 border border-amber-500/30 shadow-[0_0_60px_rgba(245,158,11,0.12)] rounded-3xl overflow-hidden p-6 md:p-10 transition-all backdrop-blur-md">
                 
-                <!-- Box Header -->
                 <div class="flex flex-wrap items-center justify-between gap-4 border-b border-zinc-900 pb-6 mb-8">
                     <div>
                         <span class="bg-amber-500/10 text-amber-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
@@ -60,9 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
 
-                <!-- Interactive Tab Rows -->
                 <div class="flex flex-wrap gap-2 border-b border-zinc-900 pb-5 mb-6" id="genie-tab-headers">
-                    <button onclick="switchGenieTab(0)" id="g-tab-btn-0" class="px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-xl shadow-amber-500/20 border border-amber-400/20">
+                    <button onclick="switchGenieTab(0)" id="g-tab-btn-0" class="px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-xl shadow-amber-500/10 border border-amber-400/20">
                         Landing Page
                     </button>
                     <button onclick="switchGenieTab(1)" id="g-tab-btn-1" class="px-4 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all text-zinc-400 hover:text-white hover:bg-zinc-900 border border-transparent hover:border-zinc-800">
@@ -76,17 +67,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     </button>
                 </div>
 
-                <!-- Centralized Active Content Presentation Block -->
-                <div id="genie-tab-content" class="min-h-[200px] bg-black border border-zinc-900 rounded-2xl p-6 shadow-inner">
-                    <!-- Controlled Dynamically via JS -->
-                </div>
+                <div id="genie-tab-content" class="min-h-[200px] bg-black/40 border border-zinc-900 rounded-2xl p-6 shadow-inner">
+                    </div>
 
             </div>
         `;
         switchGenieTab(0);
     }
     
-    // Format modal details
     const modalTitle = document.querySelector("#payment-modal h3");
     if(modalTitle) modalTitle.innerHTML = '<i class="fas fa-wallet text-amber-400"></i> Secure Crypto Vault';
 });
